@@ -18,7 +18,7 @@ let autoSlide = () => {
     if (currentSlide >= numberOfSlider + 1) currentSlide = 1
     headerEl.setAttribute('slider', currentSlide)
     clearTimeout(timeOut)
-    timeOut = setTimeout(autoSlide, 2000);
+    timeOut = setTimeout(autoSlide, 5000);
 }
-timeOut = setTimeout(autoSlide, 2000);
+timeOut = setTimeout(autoSlide, 5000);
 sliderAction.forEach(el => el.addEventListener('click', changeSlide))
