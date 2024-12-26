@@ -26,50 +26,53 @@
 </head>
 
 <body>
+  <div class="overlay"></div>
   <header slider="1">
     <div class="hero__wrapper container">
-    <nav class="">
-      <i class="logo"></i>
-      <ul class="menu">
-        <li ><a href="#" title="home">Home</a></li>
-        <li ><a href="#" title="Shop">Shop</a></li>
-        <li ><a href="#" title="About">About</a></li>
-        <li ><a href="#" title="Contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hero">
-      <div content_slider="1" class="slider__content">
-        <h1> Discover innovative ways to decorate</h1>
-        <p> We provide unmatched quality, comfort, and style for property owners across the country.
-          Our experts combine form and function in bringing your vision to life. Create a room in your
-          own style with our collection and make your property a reflection of you and what you love.</p>
-        <a href="#" title="shopnow"> Shop now <i></i></a>
-      </div>
-      <div content_slider="2" class="slider__content">
-        <h1> We are available all across the globe</h1>
-        <p> With stores all over the world, it's easy for you to find furniture for your home or place of business.
-          Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
-          store locator. Any questions? Don't hesitate to contact us today.</p>
-        <a href="#" title="shopnow"> Shop now <i></i></a>
-      </div>
-      <div content_slider="3" class="slider__content">
-        <h1> Manufactured with the best materials</h1>
-        <p> Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
-          to ensure that every product is made as perfect and as consistent as possible. With three decades of
-          experience in this industry, we understand what customers want for their home and office.</p>
-        <a href="#" title="shopnow"> Shop now <i></i></a>
-      </div>
-
-      <div class="slider__action">
-        <span class="slider__action--left"><i></i></span>
-        <span class="slider__action--right"><i></i></span>
+      <nav class="" style="position: relative;">
+        <i class="mobile_menu"></i>
+        <i class="logo"></i>
+        <ul class="menu">
+          <li class="mobile__close"><i></i></li>
+          <li><a href="#" title="Home">Home</a></li>
+          <li><a href="#" title="Shop">Shop</a></li>
+          <li><a href="#" title="About">About</a></li>
+          <li><a href="#" title="Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <div content_slider="1" class="slider__content">
+          <h1> Discover innovative ways to decorate</h1>
+          <p> We provide unmatched quality, comfort, and style for property owners across the country.
+            Our experts combine form and function in bringing your vision to life. Create a room in your
+            own style with our collection and make your property a reflection of you and what you love.</p>
+          <a href="#" title="shopnow"> Shop now <i></i></a>
+        </div>
+        <div content_slider="2" class="slider__content">
+          <h1> We are available all across the globe</h1>
+          <p> With stores all over the world, it's easy for you to find furniture for your home or place of business.
+            Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+            store locator. Any questions? Don't hesitate to contact us today.</p>
+          <a href="#" title="shopnow"> Shop now <i></i></a>
+        </div>
+        <div content_slider="3" class="slider__content">
+          <h1> Manufactured with the best materials</h1>
+          <p> Our modern furniture store provide a high level of quality. Our company has invested in advanced
+            technology
+            to ensure that every product is made as perfect and as consistent as possible. With three decades of
+            experience in this industry, we understand what customers want for their home and office.</p>
+          <a href="#" title="shopnow"> Shop now <i></i></a>
+        </div>
+        <div class="slider__action">
+          <span class="slider__action--left"><i></i></span>
+          <span class="slider__action--right"><i></i></span>
+        </div>
       </div>
     </div>
-  </div>
   </header>
   <main>
-    <section class="content">
-      <img src="./images/image-about-dark.jpg" alt="image-about-dark">
+    <section class="content ">
+      <img loading="lazy" src="./images/image-about-dark.jpg" alt="image-about-dark">
       <div class="content">
         <h2> About our furniture</h2>
         <p> Our multifunctional collection blends design and function to suit your individual taste.
@@ -77,7 +80,7 @@
           inspires you. Find the furniture pieces you need, from traditional to contemporary styles
           or anything in between. Product specialists are available to help you create your dream space.</p>
       </div>
-      <img src="./images/image-about-light.jpg" alt="image-about-light">
+      <img loading="lazy" src="./images/image-about-light.jpg" alt="image-about-light">
     </section>
   </main>
 
@@ -86,5 +89,24 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+<script>
+  let mobileMenuOpen = document.querySelector('.mobile_menu')
+  let mobileMenuClose = document.querySelector('.mobile__close')
+  let overlay = document.querySelector('.overlay')
+  let header = document.querySelector('header')
+  let toggleMenu = (isOpen) => {
+    header.toggleAttribute('open', isOpen)
+    overlay.style.display = isOpen ? "block" : "none"
+  }
+  mobileMenuOpen.addEventListener('click', (e) => {
+    toggleMenu(true)
+  })
+  mobileMenuClose.addEventListener('click', (e) => {
+    toggleMenu(false)
+  })
+  overlay.addEventListener('click', (e) => {
+    toggleMenu(false)
+  })
+</script>
 
 </html>

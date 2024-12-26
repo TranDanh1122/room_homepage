@@ -17,6 +17,7 @@ body {
     height: 100%;
     font-family: "League Spartan", sans-serif;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -40,9 +41,10 @@ header {
     background-repeat: no-repeat;
     background-size: 50% 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -99,7 +101,7 @@ header .menu {
     justify-content: flex-start;
     list-style: none;
     gap: 2rem;
-    font-size: 600;
+    font-weight: 600;
 }
 
 .menu li {
@@ -132,7 +134,7 @@ header .menu {
 
 .slider__content h1 {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -2px;
     margin-bottom: 1.125rem;
 }
@@ -207,9 +209,11 @@ header .menu {
     padding: 1.5rem;
     background-color: var(--black);
 }
+
 .slider__action span:hover {
     background-color: var(--dark_gray);
 }
+
 .slider__action--left i {
     mask: url(images/icon-angle-left.svg) center / contain no-repeat;
     -webkit-mask: url(images/icon-angle-left.svg) center / contain no-repeat;
@@ -218,4 +222,152 @@ header .menu {
 .slider__action--right i {
     mask: url(images/icon-angle-right.svg) center / contain no-repeat;
     -webkit-mask: url(images/icon-angle-right.svg) center / contain no-repeat;
+}
+
+.mobile_menu {
+    display: none;
+}
+
+.menu .mobile__close {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 5;
+}
+
+@media (max-width:767px) {
+
+    html,
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    header[slider="1"] {
+        background-image: url(images/mobile-image-hero-1.jpg);
+    }
+
+    header[slider="2"] {
+        background-image: url(images/mobile-image-hero-2.jpg);
+    }
+
+    header[slider="3"] {
+        background-image: url(images/mobile-image-hero-3.jpg);
+    }
+
+    header {
+        background-position: top;
+        background-size: 100% auto;
+    }
+
+    .hero {
+        width: 100%;
+        position: relative;
+        margin-top: 100%;
+        padding: unset;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .slider__content h1 {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .slider__content p {
+        text-align: justify;
+    }
+
+
+    .slider__action {
+        bottom: calc(100% + 4.75rem);
+        right: 0;
+        left: unset;
+    }
+
+    .mobile_menu {
+        display: block;
+        width: 1.25rem;
+        height: 1rem;
+        mask: url(images/icon-hamburger.svg) center / contain no-repeat;
+        -webkit-mask: url(images/icon-hamburger.svg) center / contain no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--white);
+    }
+
+    header nav {
+        justify-content: center;
+    }
+
+    header .menu {
+        display: none;
+    }
+
+    header[open] .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        height: 100px;
+        z-index: 10;
+        justify-content: center;
+        display: flex;
+    }
+
+    .menu a {
+        color: black;
+    }
+
+    header[open] .mobile__close {
+        display: block;
+    }
+
+    .menu .mobile__close i {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--very_dark_gray);
+        mask: url(images/icon-close.svg) center / contain no-repeat;
+        -webkit-mask: url(images/icon-close.svg) center / contain no-repeat;
+    }
+
+    .content {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 99%;
+        margin: 0 auto;
+    }
+    
+    .content img {
+        width: 100%;
+    }
+    .content p {
+        padding: unset;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width:375px) {
+
+    html,
+    body {
+        font-size: 12px;
+    }
 }
