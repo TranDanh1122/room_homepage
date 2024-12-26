@@ -4,10 +4,218 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dark_gray: hsl(0, 0%, 63%);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --very_dark_gray: hsl(0, 0%, 27%);
+}
+
 html,
 body {
     width: 100%;
     height: 100%;
     font-family: "League Spartan", sans-serif;
     font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+i {
+    display: block;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    padding-top: 4rem;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 4rem;
+    height: 1rem;
+    mask: url(images/logo.svg) center / contain no-repeat;
+    -webkit-mask: url(images/logo.svg) center / contain no-repeat;
+    background-color: white;
+}
+
+header[slider="1"] {
+    background-image: url(images/desktop-image-hero-1.jpg);
+}
+
+header[slider="2"] {
+    background-image: url(images/desktop-image-hero-2.jpg);
+}
+
+header[slider="3"] {
+    background-image: url(images/desktop-image-hero-3.jpg);
+}
+
+*[content_slider] {
+    display: none
+}
+
+header[slider="1"] *[content_slider="1"] {
+    display: block;
+}
+
+header[slider="2"] *[content_slider="2"] {
+    display: block;
+}
+
+header[slider="3"] *[content_slider="3"] {
+    display: block;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3.5rem;
+    align-self: flex-start;
+}
+
+header .menu {
+    display: flex;
+    flex-flow: row nowrap;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 2rem;
+    font-size: 600;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a::before {
+    content: "";
+    width: 75%;
+    height: 2px;
+    background-color: white;
+    bottom: -.5rem;
+    left: 12.5%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.menu a:hover::before {
+    display: block;
+}
+
+.hero {
+    padding: 7.5rem 6.25rem 10rem 6.25rem;
+    width: 50%;
+    justify-self: flex-end;
+    position: relative;
+}
+
+
+.slider__content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: 1.125rem;
+}
+
+.slider__content p {
+    line-height: 1.5rem;
+    letter-spacing: -0.33px;
+    color: var(--dark_gray);
+    margin-bottom: 1.5rem;
+}
+
+.slider__content a {
+    letter-spacing: 0.75rem;
+    text-transform: uppercase;
+
+}
+
+.slider__content a i {
+    mask: url(images/icon-arrow.svg) center / contain no-repeat;
+    -webkit-mask: url(images/icon-arrow.svg) center / contain no-repeat;
+    background-color: black;
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.75rem;
+}
+
+.content img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 33.33%
+}
+
+.content h2 {
+    font-weight: bold;
+    line-height: 1.5rem;
+    letter-spacing: 6.67px;
+}
+
+.content p {
+    line-height: 1.5rem;
+    letter-spacing: -0.33px;
+    color: var(--dark_gray);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: 1rem;
+}
+
+.slider__action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.slider__action i {
+    width: 0.75rem;
+    height: 1.5rem;
+    background-color: var(--white);
+}
+
+.slider__action span {
+    display: block;
+    padding: 1.5rem;
+    background-color: var(--black);
+}
+.slider__action span:hover {
+    background-color: var(--dark_gray);
+}
+.slider__action--left i {
+    mask: url(images/icon-angle-left.svg) center / contain no-repeat;
+    -webkit-mask: url(images/icon-angle-left.svg) center / contain no-repeat;
+}
+
+.slider__action--right i {
+    mask: url(images/icon-angle-right.svg) center / contain no-repeat;
+    -webkit-mask: url(images/icon-angle-right.svg) center / contain no-repeat;
 }
