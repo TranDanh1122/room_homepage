@@ -7,7 +7,18 @@ let changeSlide = (e) => {
     if (e.target.classList.contains('slider__action--left')) currentSlide -= 1
     if (e.target.classList.contains('slider__action--right')) currentSlide += 1
     if (currentSlide <= 0) currentSlide = numberOfSlider
-    if (currentSlide >= numberOfSlider + 1) currentSlide = 1    
+    if (currentSlide >= numberOfSlider + 1) currentSlide = 1
     headerEl.setAttribute('slider', currentSlide)
 }
+let timeOut;
+let autoSlide = () => {
+    let currentSlide = parseInt(headerEl.getAttribute('slider'))
+    currentSlide += 1
+    if (currentSlide <= 0) currentSlide = numberOfSlider
+    if (currentSlide >= numberOfSlider + 1) currentSlide = 1
+    headerEl.setAttribute('slider', currentSlide)
+    clearTimeout(timeOut)
+    timeOut = setTimeout(autoSlide, 2000);
+}
+timeOut = setTimeout(autoSlide, 2000);
 sliderAction.forEach(el => el.addEventListener('click', changeSlide))
